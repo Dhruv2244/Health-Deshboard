@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.75rem;
+
+    /* Chart colors */
+    --chart-1: 346 84% 61%;
+    --chart-2: 211 100% 57%;
+    --chart-3: 270 100% 70%;
+    --chart-4: 180 65% 53%;
+
+    /* Sidebar colors */
+    --sidebar: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-primary: 221.2 83.2% 53.3%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-ring: 221.2 83.2% 53.3%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+
+    /* Sidebar colors */
+    --sidebar: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-primary: 217.2 91.2% 59.8%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Mood-based theme variations */
+.mood-sad {
+  --background: 220 20% 97%;
+  --foreground: 220 20% 20%;
+  --card: 220 20% 97%;
+  --card-foreground: 220 20% 20%;
+  --primary: 220 20% 40%;
+  --primary-foreground: 220 20% 97%;
+  --secondary: 220 20% 92%;
+  --secondary-foreground: 220 20% 20%;
+  --muted: 220 20% 92%;
+  --muted-foreground: 220 20% 40%;
+  --accent: 220 20% 92%;
+  --accent-foreground: 220 20% 20%;
+  --border: 220 20% 90%;
+  --input: 220 20% 90%;
+  --ring: 220 20% 40%;
+  filter: saturate(0.7) brightness(0.95);
+}
+
+.dark .mood-sad {
+  --background: 220 20% 10%;
+  --foreground: 220 20% 90%;
+  --card: 220 20% 10%;
+  --card-foreground: 220 20% 90%;
+  --primary: 220 20% 40%;
+  --primary-foreground: 220 20% 10%;
+  --secondary: 220 20% 15%;
+  --secondary-foreground: 220 20% 90%;
+  --muted: 220 20% 15%;
+  --muted-foreground: 220 20% 60%;
+  --accent: 220 20% 15%;
+  --accent-foreground: 220 20% 90%;
+  --border: 220 20% 15%;
+  --input: 220 20% 15%;
+  --ring: 220 20% 40%;
+  filter: saturate(0.7) brightness(0.9);
+}
+
+.mood-meh {
+  --background: 35 10% 95%;
+  --foreground: 35 10% 25%;
+  --card: 35 10% 95%;
+  --card-foreground: 35 10% 25%;
+  --primary: 35 20% 50%;
+  --primary-foreground: 35 10% 95%;
+  --secondary: 35 10% 90%;
+  --secondary-foreground: 35 10% 25%;
+  --muted: 35 10% 90%;
+  --muted-foreground: 35 10% 45%;
+  --accent: 35 10% 90%;
+  --accent-foreground: 35 10% 25%;
+  --border: 35 10% 85%;
+  --input: 35 10% 85%;
+  --ring: 35 20% 50%;
+  filter: blur(0.3px);
+}
+
+.dark .mood-meh {
+  --background: 35 10% 12%;
+  --foreground: 35 10% 85%;
+  --card: 35 10% 12%;
+  --card-foreground: 35 10% 85%;
+  --primary: 35 20% 50%;
+  --primary-foreground: 35 10% 12%;
+  --secondary: 35 10% 17%;
+  --secondary-foreground: 35 10% 85%;
+  --muted: 35 10% 17%;
+  --muted-foreground: 35 10% 65%;
+  --accent: 35 10% 17%;
+  --accent-foreground: 35 10% 85%;
+  --border: 35 10% 17%;
+  --input: 35 10% 17%;
+  --ring: 35 20% 50%;
+  filter: blur(0.3px);
+}
+
+.mood-neutral {
+  /* Default theme colors - no changes */
+}
+
+.mood-good {
+  --background: 200 100% 98%;
+  --foreground: 200 80% 10%;
+  --card: 200 100% 98%;
+  --card-foreground: 200 80% 10%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 200 100% 98%;
+  --secondary: 200 100% 95%;
+  --secondary-foreground: 200 80% 10%;
+  --muted: 200 100% 95%;
+  --muted-foreground: 200 80% 40%;
+  --accent: 200 100% 95%;
+  --accent-foreground: 200 80% 10%;
+  --border: 200 100% 90%;
+  --input: 200 100% 90%;
+  --ring: 200 100% 50%;
+  filter: saturate(1.2) brightness(1.05);
+}
+
+.dark .mood-good {
+  --background: 200 80% 8%;
+  --foreground: 200 100% 95%;
+  --card: 200 80% 8%;
+  --card-foreground: 200 100% 95%;
+  --primary: 200 100% 50%;
+  --primary-foreground: 200 80% 8%;
+  --secondary: 200 80% 13%;
+  --secondary-foreground: 200 100% 95%;
+  --muted: 200 80% 13%;
+  --muted-foreground: 200 100% 70%;
+  --accent: 200 80% 13%;
+  --accent-foreground: 200 100% 95%;
+  --border: 200 80% 13%;
+  --input: 200 80% 13%;
+  --ring: 200 100% 50%;
+  filter: saturate(1.2) brightness(1.05);
+}
+
+.mood-great {
+  --background: 280 100% 99%;
+  --foreground: 280 80% 10%;
+  --card: 280 100% 99%;
+  --card-foreground: 280 80% 10%;
+  --primary: 280 100% 50%;
+  --primary-foreground: 280 100% 99%;
+  --secondary: 280 100% 96%;
+  --secondary-foreground: 280 80% 10%;
+  --muted: 280 100% 96%;
+  --muted-foreground: 280 80% 40%;
+  --accent: 280 100% 96%;
+  --accent-foreground: 280 80% 10%;
+  --border: 280 100% 92%;
+  --input: 280 100% 92%;
+  --ring: 280 100% 50%;
+  filter: saturate(1.3) brightness(1.1) contrast(1.05);
+}
+
+.dark .mood-great {
+  --background: 280 80% 7%;
+  --foreground: 280 100% 95%;
+  --card: 280 80% 7%;
+  --card-foreground: 280 100% 95%;
+  --primary: 280 100% 60%;
+  --primary-foreground: 280 80% 7%;
+  --secondary: 280 80% 12%;
+  --secondary-foreground: 280 100% 95%;
+  --muted: 280 80% 12%;
+  --muted-foreground: 280 100% 70%;
+  --accent: 280 80% 12%;
+  --accent-foreground: 280 100% 95%;
+  --border: 280 80% 12%;
+  --input: 280 80% 12%;
+  --ring: 280 100% 60%;
+  filter: saturate(1.3) brightness(1.1) contrast(1.05);
+}
+
+/* Mood-specific layout adjustments */
+.mood-sad .metric-card {
+  @apply opacity-80;
+}
+
+.mood-sad .dashboard-content {
+  @apply max-w-3xl mx-auto;
+}
+
+.mood-meh .metric-card {
+  @apply -rotate-1 hover:rotate-0 transition-transform;
+}
+
+.mood-meh .dashboard-content {
+  @apply gap-4 md:gap-5 lg:gap-6;
+}
+
+.mood-meh .card {
+  @apply -skew-x-1 hover:skew-x-0 transition-transform;
+}
+
+.mood-good .metric-card {
+  @apply shadow-lg hover:shadow-xl transition-shadow;
+}
+
+.mood-good .dashboard-content {
+  @apply gap-6 md:gap-7 lg:gap-8;
+}
+
+.mood-great .metric-card {
+  @apply shadow-xl hover:shadow-2xl transition-all border-2;
+}
+
+.mood-great .dashboard-content {
+  @apply gap-6 md:gap-8 lg:gap-10;
+}
+
+.mood-great .card {
+  @apply border-2;
+}
+
+/* Animation variations based on mood */
+.mood-sad .animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.mood-meh .animate-fade-in {
+  animation: fadeInWobble 0.7s ease-in-out;
+}
+
+.mood-good .animate-fade-in {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.mood-great .animate-fade-in {
+  animation: fadeInScale 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+@keyframes fadeInWobble {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(5px) rotate(1deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
